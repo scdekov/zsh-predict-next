@@ -1,4 +1,4 @@
-function get_next() {
+function predict_next() {
     nexts_str=$(history |
                 grep -A1 "$BUFFER" |
                 grep -v "$BUFFER" |
@@ -19,9 +19,12 @@ function get_next() {
         $(test $dict[$next] -gt $best["occ"]) && best["occ"]=$dict[$next] && best["cmd"]=$next
     done
 
-    BUFFER="$BUFFER && $best["cmd"]"
+    POSTDISPLAY=" && $best["cmd"]"
 }
 
 
-zle -N get_next
-bindkey '^[[25~' get_next
+zle -N predict_next
+bindkey '^ ' predict_next
+
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(predict_next)
+
