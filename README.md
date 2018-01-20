@@ -10,4 +10,3 @@ Simple plugin which tries to predict your next command and show it as suggestion
 ## Usage
 
 Type any command, press ctrl + space, press right arrow to accept the suggestion
-
