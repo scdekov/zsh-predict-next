@@ -23,6 +23,15 @@ function predict_next() {
 
     typeset -g _ZSH_AUTOSUGGEST_LAST_HIGHLIGHT="$#BUFFER $(($#BUFFER + $#POSTDISPLAY)) $ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE"
     region_highlight+=("$_ZSH_AUTOSUGGEST_LAST_HIGHLIGHT")
+
+    zle -R
+    zle read-command
+
+    $(test "$REPLY" '==' "forward-char") && BUFFER=$BUFFER$POSTDISPLAY;
+
+    CURSOR=${#BUFFER}
+    unset POSTDISPLAY
+    unset region_highlight
 }
 
 
