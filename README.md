@@ -9,4 +9,4 @@ Simple plugin which tries to predict your next command and show it as suggestion
 
 ## Usage
 
-Type any command, press <kbd>CTRL</kbd>+<kbd>SPACE</kbd>, press right arrow to accept the suggestion
+Type any command, press <kbd>CTRL</kbd>+<kbd>SPACE</kbd>, press <kbd>&rarr;</kbd> to accept the suggestion
